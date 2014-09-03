@@ -269,4 +269,31 @@ class TraitorTest extends PHPUnit_Framework_TestCase
             $reflector->isAbstract()
         );
     }
+
+    public function testCode()
+    {
+        $code = Traitor::create()
+            ->extends_(ParentClass::CLASS)
+            ->implements_(Interface1::CLASS)
+            ->implements_(Interface2::CLASS)
+            ->use_(Trait1::CLASS)
+            ->use_(Trait2::CLASS)
+            ->code();
+
+        $expectedCode = <<<CODE
+class TraitorImplementation_444573daa8f8d04d0e1a9014e4bd4759 extends Icecave\Traitor\ParentClass implements
+    Icecave\Traitor\Interface1,
+    Icecave\Traitor\Interface2
+{
+    use Icecave\Traitor\Trait1,
+        Icecave\Traitor\Trait2;
+}
+
+CODE;
+
+        $this->assertEquals(
+            $expectedCode,
+            $code
+        );
+    }
 }

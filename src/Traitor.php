@@ -172,6 +172,7 @@ class Traitor
      */
     public function code()
     {
+        $indent = '    ';
         $code = '';
         if ($this->abstract) {
             $code .= 'abstract ';
@@ -181,13 +182,17 @@ class Traitor
             $code .= ' extends ' . $this->parent;
         }
         if ($this->interfaces) {
-            $code .= ' implements ' . implode(', ', $this->interfaces);
+            $code .= ' implements' . PHP_EOL;
+            $code .= '    ' . implode(',' . PHP_EOL . $indent, $this->interfaces);
+            $code .= PHP_EOL;
         }
-        $code .= ' {';
+        $code .= '{' . PHP_EOL;
         if ($this->traits) {
-            $code .= ' use ' . implode(', ', $this->traits) . ';';
+            $code .= '    use ';
+            $code .= implode(',' . PHP_EOL . $indent . $indent, $this->traits) . ';';
+            $code .= PHP_EOL;
         }
-        $code .= ' }';
+        $code .= '}' . PHP_EOL;
 
         return $code;
     }
