@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="18" assertions="31" failures="0" errors="0" time="0.131795">
+    <testsuite name="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" tests="18" assertions="31" failures="0" errors="0" time="0.131795">
+      <testcase name="testExtends" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="9" assertions="1" time="0.013003"/>
+      <testcase name="testExtendsFailureWithInterface" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="21" assertions="2" time="0.011588"/>
+      <testcase name="testExtendsFailureWithTrait" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="32" assertions="2" time="0.006107"/>
+      <testcase name="testExtendsFailureFinalClass" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="43" assertions="2" time="0.006136"/>
+      <testcase name="testImplements" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="54" assertions="2" time="0.006388"/>
+      <testcase name="testImplementsWithMultipleParameters" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="72" assertions="2" time="0.005513"/>
+      <testcase name="testImplementsWithArray" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="92" assertions="2" time="0.005003"/>
+      <testcase name="testImplementsFailure" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="114" assertions="2" time="0.005554"/>
+      <testcase name="testUse" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="125" assertions="1" time="0.007176"/>
+      <testcase name="testUseWithMultipleParameters" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="138" assertions="1" time="0.004619"/>
+      <testcase name="testUseWithArray" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="153" assertions="1" time="0.005007"/>
+      <testcase name="testUseFailure" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="170" assertions="2" time="0.005494"/>
+      <testcase name="testEverything" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="181" assertions="3" time="0.006510"/>
+      <testcase name="testEmpty" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="207" assertions="4" time="0.007052"/>
+      <testcase name="testInstance" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="238" assertions="1" time="0.004773"/>
+      <testcase name="testInstanceArray" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="250" assertions="1" time="0.004779"/>
+      <testcase name="testAbstract" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="262" assertions="1" time="0.006157"/>
+      <testcase name="testCode" class="Icecave\Traitor\TraitorTest" file="/home/travis/build/IcecaveStudios/traitor/test/suite/TraitorTest.php" line="273" assertions="1" time="0.020936"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

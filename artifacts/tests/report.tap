@@ -1,0 +1,20 @@
+TAP version 13
+ok 1 - Icecave\Traitor\TraitorTest::testExtends
+ok 2 - Icecave\Traitor\TraitorTest::testExtendsFailureWithInterface
+ok 3 - Icecave\Traitor\TraitorTest::testExtendsFailureWithTrait
+ok 4 - Icecave\Traitor\TraitorTest::testExtendsFailureFinalClass
+ok 5 - Icecave\Traitor\TraitorTest::testImplements
+ok 6 - Icecave\Traitor\TraitorTest::testImplementsWithMultipleParameters
+ok 7 - Icecave\Traitor\TraitorTest::testImplementsWithArray
+ok 8 - Icecave\Traitor\TraitorTest::testImplementsFailure
+ok 9 - Icecave\Traitor\TraitorTest::testUse
+ok 10 - Icecave\Traitor\TraitorTest::testUseWithMultipleParameters
+ok 11 - Icecave\Traitor\TraitorTest::testUseWithArray
+ok 12 - Icecave\Traitor\TraitorTest::testUseFailure
+ok 13 - Icecave\Traitor\TraitorTest::testEverything
+ok 14 - Icecave\Traitor\TraitorTest::testEmpty
+ok 15 - Icecave\Traitor\TraitorTest::testInstance
+ok 16 - Icecave\Traitor\TraitorTest::testInstanceArray
+ok 17 - Icecave\Traitor\TraitorTest::testAbstract
+ok 18 - Icecave\Traitor\TraitorTest::testCode
+1..18

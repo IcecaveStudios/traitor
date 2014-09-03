@@ -1,0 +1,12 @@
+
+
+Code Coverage Report:     
+  2014-09-03 08:22:19     
+                          
+ Summary:                 
+  Classes: 100.00% (1/1)  
+  Methods: 100.00% (11/11)
+  Lines:   100.00% (71/71)
+
+\Icecave\Traitor::Traitor
+  Methods: 100.00% (11/11)   Lines: 100.00% ( 71/ 71)
