@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1409732793">
-  <project timestamp="1409732793">
+<coverage generated="1409733102">
+  <project timestamp="1409733102">
     <package name="Icecave\Traitor">
       <file name="/home/travis/build/IcecaveStudios/traitor/src/Traitor.php">
         <class name="Traitor" namespace="Icecave\Traitor">
