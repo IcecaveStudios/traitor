@@ -4,13 +4,28 @@ namespace Icecave\Traitor;
 use InvalidArgumentException;
 use ReflectionClass;
 
+/**
+ * Build a class at run-time.
+ */
 class Traitor
 {
+    /**
+     * Create a traitor instance.
+     *
+     * @return Traitor
+     */
     public static function create()
     {
         return new Traitor;
     }
 
+    /**
+     * Have the generated class extend the given class.
+     *
+     * @param string $class The name of the class to extend.
+     *
+     * @return Traitor This instance.
+     */
     public function extends_($class)
     {
         $reflector = new ReflectionClass($class);
@@ -26,6 +41,14 @@ class Traitor
         return $this;
     }
 
+    /**
+     * Have the generated class implement the given interface(s).
+     *
+     * @param array<string>|string $interfaces     The name of the interface to implement.
+     * @param string               $additional,... Additional interface names.
+     *
+     * @return Traitor This instance.
+     */
     public function implements_($interfaces)
     {
         if (!is_array($interfaces)) {
@@ -45,6 +68,14 @@ class Traitor
         return $this;
     }
 
+    /**
+     * Have the generated class use the given trait(s).
+     *
+     * @param array<string>|string $traits         The name of the trait to use.
+     * @param string               $additional,... Additional trait names.
+     *
+     * @return Traitor This instance.
+     */
     public function use_($traits)
     {
         if (!is_array($traits)) {
@@ -64,17 +95,27 @@ class Traitor
         return $this;
     }
 
+    /**
+     * Get the name of the generated class.
+     *
+     * @return string The name of the generated class.
+     */
     public function name()
     {
         $className = 'TraitorImplementation_' . $this->hash();
 
         if (!class_exists($className)) {
-            $this->declareClass($className);
+            $this->generateClass($className);
         }
 
         return $className;
     }
 
+    /**
+     * Get a reflector for the generated class.
+     *
+     * @return ReflectionClass The reflector for the generated class.
+     */
     public function reflector()
     {
         return new ReflectionClass(
@@ -82,13 +123,32 @@ class Traitor
         );
     }
 
+    /**
+     * Get an instance of the generated class.
+     *
+     * @param mixed $arguments,... Arguments to pass to the constructor.
+     *
+     * @return object
+     */
     public function instance()
     {
-        return $this->
-            reflector()
-            ->newInstanceArgs(
-                func_get_args()
-            );
+        return $this->instanceArray(
+            func_get_args()
+        );
+    }
+
+    /**
+     * Get an instance of the generated class.
+     *
+     * @param array $arguments,... Arguments to pass to the constructor.
+     *
+     * @return object
+     */
+    public function instanceArray(array $arguments)
+    {
+        return $this
+            ->reflector()
+            ->newInstanceArgs($arguments);
     }
 
     private function hash()
@@ -105,7 +165,7 @@ class Traitor
         );
     }
 
-    private function declareClass($className)
+    private function generateClass($className)
     {
         $code = 'class ' . $className;
         if ($this->parent) {

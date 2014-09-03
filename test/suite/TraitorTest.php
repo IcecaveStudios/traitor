@@ -235,4 +235,27 @@ class TraitorTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    public function testInstance()
+    {
+        $instance = Traitor::create()
+            ->extends_(ParentClass::CLASS)
+            ->instance(1, 2, 3);
+
+        $this->assertSame(
+            [1, 2, 3],
+            $instance->arguments
+        );
+    }
+
+    public function testInstanceArray()
+    {
+        $instance = Traitor::create()
+            ->extends_(ParentClass::CLASS)
+            ->instanceArray([1, 2, 3]);
+
+        $this->assertSame(
+            [1, 2, 3],
+            $instance->arguments
+        );
+    }
 }
