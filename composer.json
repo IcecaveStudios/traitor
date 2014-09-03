@@ -1,0 +1,25 @@
+{
+    "name": "icecave/traitor",
+    "description": "This package needs a description!",
+    "keywords": [],
+    "homepage": "https://github.com/IcecaveStudios/traitor",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "James Harris",
+            "email": "james.harris@icecave.com.au",
+            "homepage": "https://github.com/jmalloc"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+        "icecave/archer": "~1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Icecave\\Traitor\\": "src"
+        }
+    }
+}
