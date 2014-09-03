@@ -9,11 +9,11 @@ class TraitorTest extends PHPUnit_Framework_TestCase
     public function testExtends()
     {
         $instance = Traitor::create()
-            ->extends_(ParentClass::CLASS)
+            ->extends_('Icecave\Traitor\ParentClass')
             ->instance();
 
         $this->assertInstanceOf(
-            ParentClass::CLASS,
+            'Icecave\Traitor\ParentClass',
             $instance
         );
     }
@@ -26,7 +26,7 @@ class TraitorTest extends PHPUnit_Framework_TestCase
         );
 
         $instance = Traitor::create()
-            ->extends_(Interface1::CLASS);
+            ->extends_('Icecave\Traitor\Interface1');
     }
 
     public function testExtendsFailureWithTrait()
@@ -37,7 +37,7 @@ class TraitorTest extends PHPUnit_Framework_TestCase
         );
 
         $instance = Traitor::create()
-            ->extends_(Trait1::CLASS);
+            ->extends_('Icecave\Traitor\Trait1');
     }
 
     public function testExtendsFailureFinalClass()
@@ -48,23 +48,23 @@ class TraitorTest extends PHPUnit_Framework_TestCase
         );
 
         $instance = Traitor::create()
-            ->extends_(FinalParentClass::CLASS);
+            ->extends_('Icecave\Traitor\FinalParentClass');
     }
 
     public function testImplements()
     {
         $instance = Traitor::create()
-            ->implements_(Interface1::CLASS)
-            ->implements_(Interface2::CLASS)
+            ->implements_('Icecave\Traitor\Interface1')
+            ->implements_('Icecave\Traitor\Interface2')
             ->instance();
 
         $this->assertInstanceOf(
-            Interface1::CLASS,
+            'Icecave\Traitor\Interface1',
             $instance
         );
 
         $this->assertInstanceOf(
-            Interface2::CLASS,
+            'Icecave\Traitor\Interface2',
             $instance
         );
     }
@@ -73,18 +73,18 @@ class TraitorTest extends PHPUnit_Framework_TestCase
     {
         $instance = Traitor::create()
             ->implements_(
-                Interface1::CLASS,
-                Interface2::CLASS
+                'Icecave\Traitor\Interface1',
+                'Icecave\Traitor\Interface2'
             )
             ->instance();
 
         $this->assertInstanceOf(
-            Interface1::CLASS,
+            'Icecave\Traitor\Interface1',
             $instance
         );
 
         $this->assertInstanceOf(
-            Interface2::CLASS,
+            'Icecave\Traitor\Interface2',
             $instance
         );
     }
@@ -94,19 +94,19 @@ class TraitorTest extends PHPUnit_Framework_TestCase
         $instance = Traitor::create()
             ->implements_(
                 [
-                    Interface1::CLASS,
-                    Interface2::CLASS,
+                    'Icecave\Traitor\Interface1',
+                    'Icecave\Traitor\Interface2',
                 ]
             )
             ->instance();
 
         $this->assertInstanceOf(
-            Interface1::CLASS,
+            'Icecave\Traitor\Interface1',
             $instance
         );
 
         $this->assertInstanceOf(
-            Interface2::CLASS,
+            'Icecave\Traitor\Interface2',
             $instance
         );
     }
@@ -119,18 +119,18 @@ class TraitorTest extends PHPUnit_Framework_TestCase
         );
 
         Traitor::create()
-            ->implements_(ParentClass::CLASS);
+            ->implements_('Icecave\Traitor\ParentClass');
     }
 
     public function testUse()
     {
         $reflector = Traitor::create()
-            ->use_(Trait1::CLASS)
-            ->use_(Trait2::CLASS)
+            ->use_('Icecave\Traitor\Trait1')
+            ->use_('Icecave\Traitor\Trait2')
             ->reflector();
 
         $this->assertSame(
-            [Trait1::CLASS, Trait2::CLASS],
+            ['Icecave\Traitor\Trait1', 'Icecave\Traitor\Trait2'],
             array_keys($reflector->getTraits())
         );
     }
@@ -139,13 +139,13 @@ class TraitorTest extends PHPUnit_Framework_TestCase
     {
         $reflector = Traitor::create()
             ->use_(
-                Trait1::CLASS,
-                Trait2::CLASS
+                'Icecave\Traitor\Trait1',
+                'Icecave\Traitor\Trait2'
             )
             ->reflector();
 
         $this->assertSame(
-            [Trait1::CLASS, Trait2::CLASS],
+            ['Icecave\Traitor\Trait1', 'Icecave\Traitor\Trait2'],
             array_keys($reflector->getTraits())
         );
     }
@@ -155,14 +155,14 @@ class TraitorTest extends PHPUnit_Framework_TestCase
         $reflector = Traitor::create()
             ->use_(
                 [
-                    Trait1::CLASS,
-                    Trait2::CLASS,
+                    'Icecave\Traitor\Trait1',
+                    'Icecave\Traitor\Trait2',
                 ]
             )
             ->reflector();
 
         $this->assertSame(
-            [Trait1::CLASS, Trait2::CLASS],
+            ['Icecave\Traitor\Trait1', 'Icecave\Traitor\Trait2'],
             array_keys($reflector->getTraits())
         );
     }
@@ -175,29 +175,29 @@ class TraitorTest extends PHPUnit_Framework_TestCase
         );
 
         Traitor::create()
-            ->use_(ParentClass::CLASS);
+            ->use_('Icecave\Traitor\ParentClass');
     }
 
     public function testEverything()
     {
         $instance = Traitor::create()
-            ->extends_(ParentClass::CLASS)
-            ->implements_(Interface1::CLASS)
-            ->use_(Trait1::CLASS)
+            ->extends_('Icecave\Traitor\ParentClass')
+            ->implements_('Icecave\Traitor\Interface1')
+            ->use_('Icecave\Traitor\Trait1')
             ->instance();
 
         $this->assertInstanceOf(
-            ParentClass::CLASS,
+            'Icecave\Traitor\ParentClass',
             $instance
         );
 
         $this->assertInstanceOf(
-            Interface1::CLASS,
+            'Icecave\Traitor\Interface1',
             $instance
         );
 
         $this->assertSame(
-            [Trait1::CLASS],
+            ['Icecave\Traitor\Trait1'],
             array_keys(
                 (new ReflectionClass($instance))->getTraits()
             )
@@ -238,7 +238,7 @@ class TraitorTest extends PHPUnit_Framework_TestCase
     public function testInstance()
     {
         $instance = Traitor::create()
-            ->extends_(ParentClass::CLASS)
+            ->extends_('Icecave\Traitor\ParentClass')
             ->instance(1, 2, 3);
 
         $this->assertSame(
@@ -250,7 +250,7 @@ class TraitorTest extends PHPUnit_Framework_TestCase
     public function testInstanceArray()
     {
         $instance = Traitor::create()
-            ->extends_(ParentClass::CLASS)
+            ->extends_('Icecave\Traitor\ParentClass')
             ->instanceArray([1, 2, 3]);
 
         $this->assertSame(
@@ -273,11 +273,11 @@ class TraitorTest extends PHPUnit_Framework_TestCase
     public function testCode()
     {
         $code = Traitor::create()
-            ->extends_(ParentClass::CLASS)
-            ->implements_(Interface1::CLASS)
-            ->implements_(Interface2::CLASS)
-            ->use_(Trait1::CLASS)
-            ->use_(Trait2::CLASS)
+            ->extends_('Icecave\Traitor\ParentClass')
+            ->implements_('Icecave\Traitor\Interface1')
+            ->implements_('Icecave\Traitor\Interface2')
+            ->use_('Icecave\Traitor\Trait1')
+            ->use_('Icecave\Traitor\Trait2')
             ->code();
 
         $expectedCode = <<<CODE
