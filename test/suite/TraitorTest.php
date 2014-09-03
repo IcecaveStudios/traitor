@@ -258,4 +258,15 @@ class TraitorTest extends PHPUnit_Framework_TestCase
             $instance->arguments
         );
     }
+
+    public function testAbstract()
+    {
+        $reflector = Traitor::create()
+            ->abstract_()
+            ->reflector();
+
+        $this->assertTrue(
+            $reflector->isAbstract()
+        );
+    }
 }

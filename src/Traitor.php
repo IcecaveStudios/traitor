@@ -96,16 +96,30 @@ class Traitor
     }
 
     /**
+     * Make the generated class abstract.
+     *
+     * @param boolean $abstract True to make the class abstract.
+     *
+     * @return Traitor This object.
+     */
+    public function abstract_($abstract = true)
+    {
+        $this->abstract = $abstract;
+
+        return $this;
+    }
+
+    /**
      * Get the name of the generated class.
      *
      * @return string The name of the generated class.
      */
     public function name()
     {
-        $className = 'TraitorImplementation_' . $this->hash();
+        $className = $this->generateClassName();
 
         if (!class_exists($className)) {
-            $this->generateClass($className);
+            eval($this->code());
         }
 
         return $className;
@@ -151,23 +165,18 @@ class Traitor
             ->newInstanceArgs($arguments);
     }
 
-    private function hash()
+    /**
+     * Get the generated code.
+     *
+     * @return string The generated code.
+     */
+    public function code()
     {
-        $names = array_merge(
-            array_keys($this->interfaces),
-            array_keys($this->traits)
-        );
-
-        sort($names);
-
-        return md5(
-            $this->parent . implode('', $names)
-        );
-    }
-
-    private function generateClass($className)
-    {
-        $code = 'class ' . $className;
+        $code = '';
+        if ($this->abstract) {
+            $code .= 'abstract ';
+        }
+        $code .= 'class ' . $this->generateClassName();
         if ($this->parent) {
             $code .= ' extends ' . $this->parent;
         }
@@ -180,10 +189,31 @@ class Traitor
         }
         $code .= ' }';
 
-        eval($code);
+        return $code;
+    }
+
+    private function generateClassName()
+    {
+        if ($this->abstract) {
+            $className = 'AbstractTraitorImplementation_';
+        } else {
+            $className = 'TraitorImplementation_';
+        }
+
+        $names = array_merge(
+            array_keys($this->interfaces),
+            array_keys($this->traits)
+        );
+
+        sort($names);
+
+        return $className . md5(
+            $this->parent . implode('', $names)
+        );
     }
 
     private $parent;
+    private $abstract = false;
     private $traits = [];
     private $interfaces = [];
 }
