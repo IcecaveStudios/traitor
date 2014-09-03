@@ -1,7 +1,15 @@
 {
     "name": "icecave/traitor",
-    "description": "This package needs a description!",
-    "keywords": [],
+    "description": "Compose new classes using interfaces and traits at runtime.",
+    "keywords": [
+        "testing",
+        "mock",
+        "mocking",
+        "generate",
+        "code",
+        "trait",
+        "interface"
+    ],
     "homepage": "https://github.com/IcecaveStudios/traitor",
     "license": "MIT",
     "authors": [
