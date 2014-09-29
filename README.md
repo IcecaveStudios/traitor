@@ -25,6 +25,6 @@ $instance = Traitor::create()
 ```
 
 <!-- references -->
-[Build Status]: http://img.shields.io/travis/IcecaveStudios/traitor/develop.svg
-[Test Coverage]: http://img.shields.io/coveralls/IcecaveStudios/traitor/develop.svg
-[SemVer]: http://img.shields.io/:semver-1.0.0-green.svg
+[Build Status]: http://img.shields.io/travis/IcecaveStudios/traitor/develop.svg?style=flat-square
+[Test Coverage]: http://img.shields.io/coveralls/IcecaveStudios/traitor/develop.svg?style=flat-square
+[SemVer]: http://img.shields.io/:semver-1.0.0-brightgreen.svg?style=flat-square
