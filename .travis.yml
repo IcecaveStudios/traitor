@@ -1,15 +1,15 @@
 language: php
 
-php: ["5.4", "5.5", "5.6", "hhvm"]
+php: ["5.4", "5.5", "5.6", "hhvm", "hhvm-nightly"]
 
 matrix:
-    allow_failures: [{"php": "5.6"}, {"php": "hhvm"}]
+    allow_failures: [{"php": "hhvm"}, {"php": "hhvm-nightly"}]
     fast_finish: true
 
 env:
   global:
-    - ARCHER_PUBLISH_VERSION=5.5
-    - secure: "ZK1dqeVXpWjlJGhHRi21bTs9FELBZBCDZoFu3wgJgUsG5gQL+GFnmsdXqs4RM8NSN9RRvPik5/ukiPtF/IiYo1DnnUbkdvUwu6ltPJ+ckugtI9t4QEq9GqJ/V0bqRcseYzPjbQLd64lT3shHuvKgMbp1HHH5Xs4NRHqhy4jsRms="
+    - ARCHER_PUBLISH_VERSION=5.6
+    - secure: "BmzNkLUHoH70g6ClN4RuqxTKaS+FfchH99RhVV3gfr2o58Kt6NQGgcxoU2HkX1U5mNdBmIiz6n5aIMcV9L/hYiEXrkGkrYrXtLC01D7LmSNEyYb2OZ/mBWnKWlZN2EMZeGmnlsIHBqqIeFFLgh3lhIenSl3ia6jnoZmCdScuHWY="
 
 install:
   - ./.travis.install
