@@ -16,7 +16,7 @@ class Traitor
      */
     public static function create()
     {
-        return new Traitor;
+        return new Traitor();
     }
 
     /**
