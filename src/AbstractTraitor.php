@@ -1,6 +1,8 @@
 <?php
 namespace Icecave\Traitor;
 
+use ReflectionClass;
+
 /**
  * Build a class at run-time.
  */
