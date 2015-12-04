@@ -24,7 +24,13 @@ $instance = Traitor::create()
     ->instance(1, 2, 3);
 ```
 
+## Contact us
+
+* Follow [@IcecaveStudios](https://twitter.com/IcecaveStudios) on Twitter
+* Visit the [Icecave Studios website](http://icecave.com.au)
+* Join `#icecave` on [irc.freenode.net](http://webchat.freenode.net?channels=icecave)
+
 <!-- references -->
-[Build Status]: http://img.shields.io/travis/IcecaveStudios/traitor/develop.svg
-[Test Coverage]: http://img.shields.io/coveralls/IcecaveStudios/traitor/develop.svg
-[SemVer]: http://img.shields.io/:semver-1.0.0-green.svg
+[Build Status]: http://img.shields.io/travis/IcecaveStudios/traitor/develop.svg?style=flat-square
+[Test Coverage]: http://img.shields.io/coveralls/IcecaveStudios/traitor/develop.svg?style=flat-square
+[SemVer]: http://img.shields.io/:semver-1.0.0-brightgreen.svg?style=flat-square
