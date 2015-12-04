@@ -1,31 +1,20 @@
 <?php
 namespace Icecave\Traitor;
 
-use InvalidArgumentException;
-use ReflectionClass;
-
 /**
  * Build a class at run-time.
  */
-class Traitor extends AbstractTraitor
+class TraitorNoChecks extends AbstractTraitor
 {
     /**
      * Have the generated class extend the given class.
      *
      * @param string $class The name of the class to extend.
      *
-     * @return Traitor This instance.
+     * @return TraitorNoChecks This instance.
      */
     public function extends_($class)
     {
-        $reflector = new ReflectionClass($class);
-
-        if ($reflector->isInterface() || $reflector->isTrait()) {
-            throw new InvalidArgumentException($class . ' is not a class.');
-        } elseif ($reflector->isFinal()) {
-            throw new InvalidArgumentException($class . ' is marked final.');
-        }
-
         $this->parent = $class;
 
         return $this;
@@ -41,19 +30,13 @@ class Traitor extends AbstractTraitor
      */
     public function implements_($interfaces)
     {
-        if (!is_array($interfaces)) {
+        if (is_array($interfaces)) {
+            $interfaces = array_values($interfaces);
+        } else {
             $interfaces = func_get_args();
         }
 
-        foreach ($interfaces as $interface) {
-            $reflector = new ReflectionClass($interface);
-
-            if (!$reflector->isInterface()) {
-                throw new InvalidArgumentException($interface . ' is not an interface.');
-            }
-
-            $this->interfaces[$interface] = $interface;
-        }
+        $this->interfaces = array_merge($this->interfaces, array_combine($interfaces, $interfaces));
 
         return $this;
     }
@@ -68,19 +51,27 @@ class Traitor extends AbstractTraitor
      */
     public function use_($traits)
     {
-        if (!is_array($traits)) {
+        if (is_array($traits)) {
+            $traits = array_values($traits);
+        } else {
             $traits = func_get_args();
         }
 
-        foreach ($traits as $trait) {
-            $reflector = new ReflectionClass($trait);
+        $this->traits = array_merge($this->traits, array_combine($traits, $traits));
 
-            if (!$reflector->isTrait()) {
-                throw new InvalidArgumentException($trait . ' is not a trait.');
-            }
+        return $this;
+    }
 
-            $this->traits[$trait] = $trait;
-        }
+    /**
+     * Make the generated class abstract.
+     *
+     * @param boolean $abstract True to make the class abstract.
+     *
+     * @return Traitor This object.
+     */
+    public function abstract_($abstract = true)
+    {
+        $this->abstract = $abstract;
 
         return $this;
     }
